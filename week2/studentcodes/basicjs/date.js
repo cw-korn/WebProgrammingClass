@@ -2,9 +2,10 @@
 //   Illustrates the use of the Date object by 
 //   displaying the parts of a current date and
 //   using two Date objects to time a calculation
-    
-// Get the current date
 
+function updateTime(){
+// Get the current date
+      document.body.innerHTML = ''; //to clear the page first
       var today = new Date();
 
 // Fetch the various parts of the date
@@ -45,7 +46,7 @@
 	  //Write your own code here 
 
 
-// Display the parts
+// Display the parts    
 
       document.write(
       //   "Date: " + dateString + "<br />",
@@ -54,3 +55,9 @@
             + hour +":"+today.getMinutes()+":"+today.getSeconds() +" "+ ampm + "<br />"
       );
 	//Write your own code here 
+}
+
+updateTime()
+
+setInterval(updateTime,1000)
+      
