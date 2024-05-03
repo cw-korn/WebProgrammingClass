@@ -1,6 +1,11 @@
 <html>
 	
 <head>
+	<script>
+		function showInfo(u, p) {
+			alert("Username: " + u + "\nPassword: " + p);
+		}
+	</script>
 	
 </head>
 <body>
@@ -12,7 +17,7 @@
 			<input type="password" id="b" name="password"/>
 		</p>
 		<p>
-			<input type="button" id="submit" name="submit" value="Submit" onclick = "showInfo(user.value,pass.value)"/>
+			<input type="button" id="submit" name="submit" value="Submit"  onclick="showInfo(document.getElementById('a').value, document.getElementById('b').value)"/>
 			<input type="button" id="cancel" name="cancel" value="Cancel"/>
 		</p>
 	</form>
