@@ -1,5 +1,7 @@
 <html>
 	<head>
+		<script src="compare.js"></script>
+	</head>
 		
 	<body>
 		<form>
@@ -10,7 +12,7 @@
 				<input type="number" id="b" name="b"/>
 			</p>
 			<p>
-				<input type="button" id="btnsubmit" name="btnsubmit" value="Submit" onclick="comparenum(a,b)"/>
+				<input type="button" id="btnsubmit" name="btnsubmit" value="Submit" onclick="comparenum(parseInt(document.getElementById('a').value), parseInt(document.getElementById('b').value))"/>
 				<input type="reset" id="cancel" name="cancel" value="cancel"/>
 			</p>
 			<p> C: 
