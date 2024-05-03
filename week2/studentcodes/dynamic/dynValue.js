@@ -9,4 +9,5 @@ var helpers = ["Your name must be in the form: \n first name, middle initial., l
 
 function messages(adviceNumber) {
 //add your code here 
+    document.getElementById("adviceBox").value = helpers[adviceNumber];
 }

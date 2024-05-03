@@ -19,6 +19,7 @@ function displayIt(evt) {
 
 function hideIt() {
 // add your code here 
+document.getElementById("message").style.visibility = "hidden";
 
 
 }
