@@ -1,0 +1,29 @@
+<html>
+<body>
+<script type="text/javascript">
+  if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+    var xmlhttp=new XMLHttpRequest();
+  }
+
+xmlhttp.open("GET","books.xml",false);
+xmlhttp.send();
+var xmlDoc=xmlhttp.responseXML; 
+
+//Add new attribute "edition"
+var x=xmlDoc.getElementsByTagName("book");
+for(var i=0;i<x.length;i++)
+{
+  x[i].setAttribute("edition","first");
+}
+
+//Output all attribute values
+for (i=0;i<x.length;i++)
+{
+  document.write("Category: " + x[i].getAttribute('category') + "<br />");
+  document.write("Edition: " + x[i].getAttribute('edition') + "<br />");
+}
+</script>
+</body>
+</html>
+

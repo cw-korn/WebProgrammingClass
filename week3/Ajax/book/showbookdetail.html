@@ -1,0 +1,34 @@
+<html>
+<body>
+<script type="text/javascript">
+if (window.XMLHttpRequest)
+{// code for IE7+, Firefox, Chrome, Opera, Safari
+  var xmlhttp=new XMLHttpRequest();
+}
+
+xmlhttp.open("GET","books.xml",false);
+xmlhttp.send();
+var xmlDoc=xmlhttp.responseXML; 
+
+
+var x=xmlDoc.getElementsByTagName("book");
+
+for (var j=0;j<x.length;j++)
+{
+for (var i=0;i<x[0].childNodes.length;i++)
+{
+if (x[j].childNodes[i].nodeType==1)
+  { 
+    document.write(x[j].childNodes[i].nodeName);
+    document.write(": ");
+    document.write(x[j].childNodes[i].childNodes[0].nodeValue);
+    document.write("<br />");
+  }
+  
+}
+document.write("<br />");
+}
+</script>
+</body>
+</html>
+
