@@ -100,3 +100,81 @@
 // var buf = Buffer.concat([buf1, buf2])
 // console.log(buf.toString())
 // console.log(buf1.toString() + buf2.toString())
+
+//EXAMPLE 7
+//sha1 decr
+// var crypto = require('crypto');
+// var fs = require('fs');
+// var shasum = crypto.createHash('sha1');
+// var s = fs.ReadStream('file.txt');
+// s.on('data', function (d) {
+//     shasum.update(d);
+// });
+// s.on('end', function () {
+//     var d = shasum.digest('hex');
+//     console.log(d + ' => file.txt');
+// });
+
+//EXAMPLE 8
+//simple for loop
+// for(var i=0;i<10;i++){
+//     console.log(i);
+// }
+
+//EXAMPLE 9 
+//dns look up
+// var dns = require('dns');
+// dns.lookup('www.google.com', function
+//     onLookup(err, addresses, family) {
+//     console.log('addresses:', addresses);
+// });
+
+//EXAMPLE 10 
+//writing to a file
+// var fs = require('fs');
+// fs.writeFile('message.txt', 'Hello Node',
+//     function (err) {
+//         if (err) throw err;
+//         console.log('It\'s saved!');
+//     });
+
+//EXAMPLE 10 more
+//read from file and then make directory and then write to a new file
+// var fs=require('fs')
+// var readMe = fs.readFileSync('./file.txt','utf8')
+// // console.log(readMe)
+
+// fs.mkdir('Project', function(){
+//     fs.writeFileSync('./Project/Output.txt', readMe)
+//     })
+
+//EXAMPLE 13
+// var os=require('os');
+// console.log(os.hostname());
+// console.log(os.type());
+// console.log(os.platform());
+// console.log(os.arch());
+// console.log(os.release());
+// console.log(os.uptime());
+// console.log(os.loadavg());
+
+//EXAMPLE 14
+//readline
+// var readline = require('readline');
+// var rl = readline.createInterface({
+//     input: process.stdin,
+//     output: process.stdout
+// });
+// rl.question("What do you think of node.js? (easy/difficult)", function (answer) {
+//     // TODO: Log the answer in a database
+//     console.log("Thank you for your valuable feedback:", answer);
+//     rl.close();
+// });
+
+//EXAMPLE 15
+// var fs = require('fs');
+// var zlib = require('zlib');
+// var r = fs.createReadStream('file.txt');
+// var z = zlib.createGzip();
+// var w = fs.createWriteStream('file.txt.gz');
+// r.pipe(z).pipe(w);

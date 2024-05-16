@@ -1,0 +1,3 @@
+Hello, world!
+This is a sample file for testing the SHA-1 hash calculation.
+It contains some text data that we want to hash.
