@@ -103,17 +103,17 @@
 
 //EXAMPLE 7
 //sha1 crypto
-var crypto = require('crypto');
-var fs = require('fs');
-var shasum = crypto.createHash('sha1');
-var s = fs.ReadStream('file.txt');
-s.on('data', function (d) {
-    shasum.update(d);
-});
-s.on('end', function () {
-    var d = shasum.digest('hex');
-    console.log(d + ' => file.txt');
-});
+// var crypto = require('crypto');
+// var fs = require('fs');
+// var shasum = crypto.createHash('sha1');
+// var s = fs.ReadStream('file.txt');
+// s.on('data', function (d) {
+//     shasum.update(d);
+// });
+// s.on('end', function () {
+//     var d = shasum.digest('hex');
+//     console.log(d + ' => file.txt');
+// });
 
 //EXAMPLE 8
 //simple for loop
@@ -208,16 +208,16 @@ s.on('end', function () {
 //   }).listen(8081, "127.0.0.1");
 
 //EXAMPLE 17
-// var http = require("http");
-// var fs = require("fs");
-// var myUser = {
-//   name: "Reese",
-//   job: "Coordinator",
-//   age: "30",
-// };
-// http
-//   .createServer(function (rew, res) {
-//     res.writeHead(200, { "Content-Type": "application/json" });
-//     res.end(JSON.stringify(myUser));
-//   })
-//   .listen(8081, "127.0.0.1");
+var http = require("http");
+var fs = require("fs");
+var myUser = {
+  name: "Reese",
+  job: "Coordinator",
+  age: "30",
+};
+http
+  .createServer(function (rew, res) {
+    res.writeHead(200, { "Content-Type": "application/json" });
+    res.end(JSON.stringify(myUser));
+  })
+  .listen(8081, "127.0.0.1");

@@ -3,11 +3,11 @@ var fs = require("fs");
 var crypto = require('crypto');
 
 //get data from file
-const data = fs.readFileSync('users.json', 'utf8');
+const data = fs.readFileSync('./users.json', 'utf8');
 //parse data into object
 const obj = JSON.parse(data);
 //create hash
-const hash = crypto.createHash('sha1').update(obj.password).digest
+const hash = crypto.createHash('sha1').update(obj.password).digest('hex')
 
 obj.password = hash;
 
@@ -18,4 +18,5 @@ http.createServer(function (req, res) {
   for (const key of keyOrder) {
     res.write(`${key}:${obj[key]}\n`);
   }
-}).listen(8081);
+  res.end();
+}).listen(8081, "127.0.0.1");
