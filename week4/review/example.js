@@ -48,7 +48,7 @@
 // util.log("a: " + a + "\n");
 // util.log("b: " + b + "\n");
 
-//EXAMPLE 5 
+//EXAMPLE 5
 // for unit testing
 // var assert = require('assert');
 // function add(a, b) {
@@ -57,7 +57,7 @@
 // var expected = add(1,2);
 // assert( expected=== 4,'one plus two is three');
 
-//EXAMPLE 6 
+//EXAMPLE 6
 // buf = new Buffer(10);
 // buf.write("abcdefghj","ascii");
 // // console.log(buf.toString('base64')); //don't work well
@@ -102,18 +102,18 @@
 // console.log(buf1.toString() + buf2.toString())
 
 //EXAMPLE 7
-//sha1 decr
-// var crypto = require('crypto');
-// var fs = require('fs');
-// var shasum = crypto.createHash('sha1');
-// var s = fs.ReadStream('file.txt');
-// s.on('data', function (d) {
-//     shasum.update(d);
-// });
-// s.on('end', function () {
-//     var d = shasum.digest('hex');
-//     console.log(d + ' => file.txt');
-// });
+//sha1 crypto
+var crypto = require('crypto');
+var fs = require('fs');
+var shasum = crypto.createHash('sha1');
+var s = fs.ReadStream('file.txt');
+s.on('data', function (d) {
+    shasum.update(d);
+});
+s.on('end', function () {
+    var d = shasum.digest('hex');
+    console.log(d + ' => file.txt');
+});
 
 //EXAMPLE 8
 //simple for loop
@@ -121,7 +121,7 @@
 //     console.log(i);
 // }
 
-//EXAMPLE 9 
+//EXAMPLE 9
 //dns look up
 // var dns = require('dns');
 // dns.lookup('www.google.com', function
@@ -129,7 +129,7 @@
 //     console.log('addresses:', addresses);
 // });
 
-//EXAMPLE 10 
+//EXAMPLE 10
 //writing to a file
 // var fs = require('fs');
 // fs.writeFile('message.txt', 'Hello Node',
@@ -178,3 +178,46 @@
 // var z = zlib.createGzip();
 // var w = fs.createWriteStream('file.txt.gz');
 // r.pipe(z).pipe(w);
+
+//EXAMPLE 15 MORE
+// var fs = require("fs");
+// var data =
+//   "Hello World Modi quia maiores. Nihil sapiente etatque. Sint numquam molestiae iure nemo fugiat asperioresaspernatur ducimus. Sit rerum officiis reprehenderit hic nisiodit officia accusantium eos.";
+
+// var writerStream = fs.createWriteStream("output.txt");
+// writerStream.write(data, "utf8");
+// writerStream.end();
+// writerStream.on("finish", function () {
+//   console.log("Output finish");
+// });
+
+//EXAMPLE 16
+// var url = require("url");
+// var result = url.parse(
+//   "http://user:pass@host.com:8080/p/a/t/h?query=string#hash"
+// );
+// console.log(result);
+
+//EXAMPLE 17
+// var http = require("http");
+// var fs = require("fs");
+// http.createServer(function (rew, res) {
+//     res.writeHead(200, { "Content-Type": "text/html" });
+//     var myStream = fs.createReadStream(__dirname + "/" + "index.html", "utf8");
+//     myStream.pipe(res);
+//   }).listen(8081, "127.0.0.1");
+
+//EXAMPLE 17
+// var http = require("http");
+// var fs = require("fs");
+// var myUser = {
+//   name: "Reese",
+//   job: "Coordinator",
+//   age: "30",
+// };
+// http
+//   .createServer(function (rew, res) {
+//     res.writeHead(200, { "Content-Type": "application/json" });
+//     res.end(JSON.stringify(myUser));
+//   })
+//   .listen(8081, "127.0.0.1");

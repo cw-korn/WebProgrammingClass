@@ -1,21 +1,18 @@
-const fs = require('fs');
-const crypto = require('crypto');
-const http = require('http');
+var http = require("http");
+var fs = require("fs");
+var crypto=require('crypto');
 
-const obj = JSON.parse(fs.readFileSync('user.json','utf8'))
-const hash = crypto.createHash('sha1').update(obj.password).digest
+//need to get value 
+var myUser = {
+  name: "Reese",
+  job: "Coordinator",
+  age: "30",
+};
 
-obj.password = hash;
-
-const keyOrder = ['id','username','password','fullname'];
-
-http.createServer(function(req,res){
-    if(!req.url.startsWith('/profile')){
-        console.log("not found");
-        return;
-    }
-    for (const key of keyOrder){
-        res.write(`${key}: ${obj[key]}\n`);
-    }
-    res.end();
-}).listen(8081);
+//this is for output
+http
+  .createServer(function (rew, res) {
+    res.writeHead(200, { "Content-Type": "application/json" });
+    res.end(JSON.stringify(myUser));
+  })
+  .listen(8081, "127.0.0.1");
