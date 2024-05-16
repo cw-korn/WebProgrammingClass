@@ -1,18 +1,21 @@
 var http = require("http");
 var fs = require("fs");
-var crypto=require('crypto');
+var crypto = require('crypto');
 
-//need to get value 
-var myUser = {
-  name: "Reese",
-  job: "Coordinator",
-  age: "30",
-};
+//get data from file
+const data = fs.readFileSync('users.json', 'utf8');
+//parse data into object
+const obj = JSON.parse(data);
+//create hash
+const hash = crypto.createHash('sha1').update(obj.password).digest
+
+obj.password = hash;
+
+const keyOrder = ['id', 'username', 'password', 'fullname'];
 
 //this is for output
-http
-  .createServer(function (rew, res) {
-    res.writeHead(200, { "Content-Type": "application/json" });
-    res.end(JSON.stringify(myUser));
-  })
-  .listen(8081, "127.0.0.1");
+http.createServer(function (req, res) {
+  for (const key of keyOrder) {
+    res.write(`${key}:${obj[key]}\n`);
+  }
+}).listen(8081);
