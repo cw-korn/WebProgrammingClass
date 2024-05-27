@@ -18,7 +18,7 @@ async function main() {
 
         // 1. Find who take "Computer Programming" (case-insensitive)
         console.log('Students who take "Computer Programming":');
-        const computerProgrammingStudents = await collection.find({ coursename: { $regex: /computer programming/i } }).toArray();
+        const computerProgrammingStudents = await collection.find({ coursename: { $regex: /Computer programming/i } }).toArray();
         console.log(computerProgrammingStudents);
 
         // 2. Find who have mark >60
