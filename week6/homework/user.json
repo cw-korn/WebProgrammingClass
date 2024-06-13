@@ -26,5 +26,10 @@
     "name": "Sue",
     "password": "4444",
     "occupation": "nurse"
+  },
+  "user8": {
+    "name": "Sue",
+    "password": "4444",
+    "occupation": "nurse"
   }
 }
